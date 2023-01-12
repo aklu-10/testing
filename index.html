@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Some Content</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel repellat sint fugiat laborum voluptatibus reprehenderit eligendi doloremque porro quaerat nemo voluptas, expedita facilis in, quos alias iure minima aliquid ad!</p>
+    <button onclick="shareContent()">Share</button>
+
+
+    <script>
+
+    let title=window.document.title;
+    let url=window.document.location;
+
+    function shareContent()
+    {
+        if(navigator.share)
+        {
+            navigator.share({
+                title:window.document.title,
+                text:"hello world",
+                url:window.location.href
+            }).then(()=>
+            {
+                console.log("Thanks for sharing");
+            })
+            .catch((err)=>console.log(err));
+        } else {
+
+        } 
+    }
+
+    </script>
+
+</body>
+</html>
